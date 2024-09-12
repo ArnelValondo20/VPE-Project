@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+<!-- PAGE CONTENT -->
+{% block content %}
+
+<div class="block-position">
+    <h1 class="text-warning">VPE <span class="text-light" id="element"></span></h1>
+    <div class="container mt-5" style="width: 80%;">
+        <div class="justify-content-center align-items-center row"></div>
+            <h6 class="btn btn-light" style="width: 100%; cursor: default;">
+                <strong>Available Options</strong>
+            </h6>
+            <div class="shadow-lg card p-2 mt-2" style="background-color: rgba(0, 0, 0, 0.5);">
+                <div class="row">
+                    <div class="col-xl-3 col-sm-6 p-1">
+                        <a href="{% url 'evaluations' %}" style="text-decoration:none">
+                            <div class="card" style="background-color: transparent;">
+                                    <button class="btn btn-outline-light btn-lg btn-evals" >
+                                        <i class="fas fa-folder fa-5x"></i>
+                                        <br><br>Evaluations
+                                    </button>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 p-1">
+                        <a href="{% url 'userslist' %}" style="text-decoration:none">
+                            <div class="card" style="background-color: transparent;">
+                                <button class="btn btn-outline-light btn-lg btn-evals">
+                                    <i class="fas fa-user-friends fa-5x"></i>
+                                    <br><br>Users List
+                                </button>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 p-1">
+                        <a href="{% url 'vendorlist' %}" style="text-decoration:none">
+                            <div class="card" style="background-color: transparent;">
+                                <button class="btn btn-outline-light btn-lg btn-evals">
+                                    <i class="fas fa-handshake fa-5x"></i>
+                                    <br><br>Vendor List
+                                </button>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 p-1">
+                        <a href="{% url 'evaluationtypes' %}" style="text-decoration:none">
+                            <div class="card" style="background-color: transparent;">
+                                <button class="btn btn-outline-light btn-lg btn-evals">
+                                    <i class="fas fa-folder-plus fa-5x"></i>
+                                    <br><br>Evaluation Types
+                                </button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+ 
+{% endblock content %}

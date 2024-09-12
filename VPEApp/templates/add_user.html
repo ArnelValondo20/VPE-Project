@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+<!-- Block Title -->
+{% block title %} VPE Create User {% endblock title %}
+
+<!-- NAVBAR Content -->
+{% block navbar-content %}
+<i class="text-warning fas fa-users"></i>&nbsp;&nbsp; VPE Users List
+{% endblock navbar-content %}
+
+<!-- LINK TO NAVIGATE BETWEEN PAGES -->
+{% block link %} 
+<a href="{% url 'home' %}" style="margin-right: 20px; font-size: 25px;" title="Go Back">
+    <i class="text-warning fas fa-angle-double-left"></i>
+</a>
+<a href="{% url 'evaluations' %}" style="margin-right: 60px; font-size: 15px;" title="Go Back">
+    <i class="text-warning fas fas fa-undo"></i>
+</a>
+{% endblock link%}
+
+<!-- PAGE CONTENT -->
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-body {% block card-color %} border-dark text-light bg-secondary {% endblock card-color %}" style="margin-top: 15px;">
+                <span class="text-center">{% block card-title %} ENTER USER DATA BELOW {% endblock card-title %}</span>
+            </div>
+
+            <form {% block action %} action="/add_user" {% endblock action %} method="POST" enctype="multipart/form-data" autocomplete="off" class="card p-3 border-dark mt-3">
+                {% csrf_token %}
+            
+                {% block value-id %}{% endblock value-id %}
+                <div class="input-group mb-3">
+                    <span class="side-label btn border-secondary bg-light"><i class="fas fa-tshirt"></i></span>
+                    <input type="text" class="form-control" name="GlobalId" maxlength="50" placeholder="Global Id" required {% block value-globalid %}{% endblock value-globalid %}>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="side-label btn border-secondary bg-light"><i class="fas fa-tshirt"></i></span>
+                    <input type="text" class="form-control" name="Name" maxlength="100" placeholder="Name" required {% block value-name %}{% endblock value-name %}>
+                </div>
+
+                <div class="mt-4" style="width: 100%;">
+                    <button type="submit" class="btn btn-secondary mb-3">
+                        {% block btn-action %} <i class="fas fa-plus-square"></i>&nbsp;&nbsp; Add User {% endblock btn-action %}
+                    </button>
+                    <a href="{% url 'home' %}" class="btn btn-outline-dark mb-3 ms-2" style="width: 120px;" title="Back">
+                        <i class="fas fa-undo-alt"></i>&nbsp;&nbsp; Go Back
+                    </a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+    
+{% endblock content %}

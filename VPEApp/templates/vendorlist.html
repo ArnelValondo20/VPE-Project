@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+<!-- Block Title -->
+{% block title %} VPE Vendor List {% endblock title %}
+
+<!-- NAVBAR Content -->
+{% block navbar-content %}
+<i class="text-warning fas fa-users"></i>&nbsp;&nbsp; VPE Vendor List
+{% endblock navbar-content %}
+
+<!-- LINK TO NAVIGATE BETWEEN PAGES -->
+{% block link %} 
+<a href="{% url 'home' %}" style="margin-right: 20px; font-size: 25px;" title="Go Back">
+    <i class="text-warning fas fa-angle-double-left"></i>
+</a>
+<a href="{% url 'evaluations' %}" style="margin-right: 60px; font-size: 15px;" title="Go Back">
+    <i class="text-warning fas fas fa-undo"></i>
+</a>
+{% endblock link%}
+
+<!-- PAGE CONTENT -->
+{% block content %}
+    
+{% endblock content %}

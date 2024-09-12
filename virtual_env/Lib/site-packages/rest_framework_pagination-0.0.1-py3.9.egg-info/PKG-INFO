@@ -1,0 +1,54 @@
+Metadata-Version: 1.2
+Name: rest-framework-pagination
+Version: 0.0.1
+Summary: Django REST framework limit/offset pagination with multiple queryset support
+Home-page: https://github.com/imzaur/drf_multi_queryset_pagination
+Author: Zaur Magamednebiev
+Author-email: imzaur777@gmail.com
+License: MIT
+Description: Django Rest Framework Multiple Queryset Pagination
+        ==================================================
+        
+        This is django rest framework pagination based on LimitOffsetPagination with
+        multiple queryset support
+        
+        
+        Installation
+        ============
+        
+        Install the package with pip:
+        
+        .. code-block:: sh
+        
+            $ pip install rest_framework_pagination
+        
+        Usage
+        =====
+        
+        .. code-block:: python
+        
+            from rest_framework.viewsets import GenericViewSet
+            from rest_framework.mixins import ListModelMixin
+            from rest_framework_pagination.pagination import MultiQuerysetPagination
+        
+        
+            class MainPageView(ListModelMixin, GenericViewSet):
+                serializer_class = serializers.MainPageSerializer
+                pagination_class = MultiQuerysetPagination
+                querysets = [models.Person.objects.all(),
+                             models.Order.objects.all(),
+                             models.Address.objects.all()]
+        
+                def get_queryset(self):
+                    return self.querysets
+        
+                def paginate_querysets(self, querysets):
+                    return self.paginator.paginate(querysets, self.request, view=self)
+        
+                def list(self, request, *args, **kwargs):
+                    page = self.paginate_querysets(self.get_queryset())
+                    serializer = self.get_serializer_class()(page, many=True)
+                    return self.get_paginated_response(serializer.data)
+        
+Platform: UNKNOWN
+Requires-Python: >=3.6

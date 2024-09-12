@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href={% static "img/favicon.ico" %}>
+    <!-- Logo -->
+    <link rel="shortcut icon" href={% static "img/logo.ico" %}>
+    <!-- CSS BOOTSTRAP 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Static CSS -->
+    <link rel="stylesheet" href={% static "css/style.css" %}>
+    <title> {% block title %} Vendor Performance Evaluation {% endblock title %}</title>
+    
+</head>
+<body>
+    <div class="wrapper">
+        <style>
+            body {
+                background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url("/static/img/background_vpe.jpg");
+                background-position: center 0px;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+
+        </style>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="col-sm">
+                    <a class="navbar-brand flex-grow-1" id="navbar-content">
+                        {% block navbar-content %}
+                        <i class="text-warning fas fa-edit"></i>&nbsp;&nbsp; Vendor Performance Evaluation
+                        {% endblock navbar-content %}
+                    </a>
+                </div>
+                <!-- LINK TO NAVIGATE BETWEEN PAGES -->
+                {% block link %} {% endblock link%}
+            </nav>
+        </header>
+
+        <!-- BLOCK CONTENT -->
+
+        {% block content %} {% endblock content %}
+        
+        <!-- END CONTENT -->
+    </div>
+
+    <footer class="bg-dark text-center text-lg-start" id="footer" style="color: #fff;">
+        <div class="text-center p-3 " style="background-color: rgba(0,0,0,0.2);">&copy; {% now "Y" %} Copyright: All Rights Reserved
+            <a class="text-center" href="#" style="text-decoration: none;">
+                <span class="text-warning">www.chiyodacorp.com</span>
+            </a>
+        </div>
+    </footer>
+    <!-- Bootstrap 5 Jscript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap 5 JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- Typed JS Effect -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- Type it effect control -->
+    <script>
+        var typed = new Typed('#element', {
+
+            strings: [
+                'OR VENDOR PERFORMANCE EVALUATION',
+                'HELPS IN MONITORING VENDORS.',
+                'MEASURES AND MITIGATES PERFORMANCE.',
+                'EVALUATE OVERALL PERFORMANCE.'
+            ],
+            typeSpeed: 40,
+            backSpeed: 20,
+            loop: true,
+        });
+    </script>
+</body>
+</html>

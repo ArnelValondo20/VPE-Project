@@ -1,0 +1,52 @@
+
+/* START OF CONFIGURATIONS */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* FOOTER */
+
+.wrapper{
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+
+#footer,
+.push {
+    height: 50px;
+}
+
+/* OTHER PARTS */
+
+#navbar-content {
+    text-align: center;
+    color: #fff;
+    margin-left: 50px;
+}
+
+.block-position{
+    width: 80%;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50% , -50%);
+    text-align: center;
+}
+
+#btn-evals {
+    width: 270px;
+    font-size: 22px;
+    border-radius: 30px;
+    margin-bottom: -50px;
+}
+
+.side-label {
+    width: 45px;
+}
+

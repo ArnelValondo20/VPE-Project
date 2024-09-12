@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+<!-- Block Title -->
+{% block title %} VPE Evaluation Types {% endblock title %}
+
+<!-- NAVBAR Content -->
+{% block navbar-content %}
+<i class="text-warning fas fa-users"></i>&nbsp;&nbsp; VPE Evaluation Types
+{% endblock navbar-content %}
+
+<!-- LINK TO NAVIGATE BETWEEN PAGES -->
+{% block link %} 
+<a href="{% url 'home' %}" style="margin-right: 20px; font-size: 25px;" title="Go Back">
+    <i class="text-warning fas fa-angle-double-left"></i>
+</a>
+<a href="{% url 'evaluations' %}" style="margin-right: 60px; font-size: 15px;" title="Go Back">
+    <i class="text-warning fas fas fa-undo"></i>
+</a>
+{% endblock link%}
+
+<!-- PAGE CONTENT -->
+{% block content %}
+<div>
+    <table class="table table-bordered table-sm mt-5" style="text-align: center; width: 80%; font-size: 16px;  ;margin-left:auto;margin-right:auto;">
+        <thead class="table-warning">
+            <tr>
+                <th>Evaluation Type</th>
+                <th>Delivery Percent</th>
+                <th>Price Changes Percent</th>
+                <th>Quality Percent</th>
+                <th>Service Percent</th>
+    
+            </tr>
+        </thead>
+        {% for evaltype in EvaluationType %}
+        <tr>
+            <td style="color:#FFFF"><strong>{{evaltype.EvaluationType}}</strong></td>
+            <td style="color:#FFFF"><strong>{{evaltype.DeliveryPercent}}</strong></td>
+            <td style="color:#FFFF"><strong>{{evaltype.PriceChangesPercent}}</strong></td>
+            <td style="color:#FFFF"><strong>{{evaltype.QualityPercent}}</strong></td>
+            <td style="color:#FFFF"><strong>{{evaltype.ServicePercent}}</strong></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+    
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+<!-- Block Title -->
+{% block title %} VPE Evaluation List {% endblock title %}
+
+<!-- NAVBAR Content -->
+{% block navbar-content %}
+<i class="text-warning fas fa-users"></i>&nbsp;&nbsp; VPE Evaluation List
+{% endblock navbar-content %}
+
+<!-- LINK TO NAVIGATE BETWEEN PAGES -->
+{% block link %} 
+<a href="{% url 'home' %}" style="margin-right: 20px; font-size: 25px;" title="Go Back">
+    <i class="text-warning fas fa-angle-double-left"></i>
+</a>
+<a href="{% url 'evaluations' %}" style="margin-right: 60px; font-size: 15px;" title="Go Back">
+    <i class="text-warning fas fas fa-undo"></i>
+</a>
+{% endblock link%}
+
+<!-- PAGE CONTENT -->
+{% block content %}
+<div class="container">
+    <br><br>
+    <a href="{% url 'add_evaluations' %}" class="btn btn-outline-light btn-sm" style="padding: 1.5%; margin-left: 60px;"><i class="fas fa-plus"></i>&nbsp;&nbsp; Create New User</a>
+</div>
+{% endblock content %}

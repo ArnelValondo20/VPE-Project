@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+<!-- Block Title -->
+{% block title %} VPE User List {% endblock title %}
+
+<!-- NAVBAR Content -->
+{% block navbar-content %}
+<i class="text-warning fas fa-users"></i>&nbsp;&nbsp; VPE User List
+{% endblock navbar-content %}
+
+<!-- LINK TO NAVIGATE BETWEEN PAGES -->
+{% block link %} 
+<a href="{% url 'home' %}" style="margin-right: 20px; font-size: 25px;" title="Go Back">
+    <i class="text-warning fas fa-angle-double-left"></i>
+</a>
+<a href="{% url 'evaluations' %}" style="margin-right: 60px; font-size: 15px;" title="Go Back">
+    <i class="text-warning fas fas fa-undo"></i>
+</a>
+{% endblock link%}
+
+<!-- PAGE CONTENT -->
+{% block content %}
+<div class="container">
+    <br><br>
+    <a href="{% url 'add_user' %}" class="btn btn-outline-light btn-sm" style="padding: 1.5%; margin-left: 60px;"><i class="fas fa-plus"></i>&nbsp;&nbsp; Create New User</a>
+    <table class="table table-bordered table-sm mt-4" style="text-align: center; width: 90%; font-size: 14px;  ;margin-left:auto;margin-right:auto;">
+        <thead class="table-warning">
+            <tr>
+                <th>Global Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        {% for user in UsersList %}
+        <tr>
+            <td style="color:#FFFF"><strong>{{user.GlobalId}}</strong></td>
+            <td style="color:#FFFF"><strong>{{user.Name}}</strong></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>  
+{% endblock content %}
